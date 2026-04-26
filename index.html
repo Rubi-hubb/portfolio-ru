@@ -3,109 +3,205 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <title>Elite Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
   <style>
-    * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif; }
-    body { background:#0f172a; color:#fff; }
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+    html{scroll-behavior:smooth}
+    body{background:#0b0f1a;color:#fff}
 
-    header { display:flex; justify-content:space-between; padding:20px 10%; align-items:center; flex-wrap:wrap; }
-    header h1 { font-size:24px; }
-    nav { display:flex; flex-wrap:wrap; }
-    nav a { color:#fff; margin-left:20px; text-decoration:none; font-size:14px; }
+    header{display:flex;justify-content:space-between;align-items:center;padding:20px 8%;position:sticky;top:0;background:rgba(11,15,26,.85);backdrop-filter:blur(12px);z-index:100}
+    nav a{margin-left:20px;text-decoration:none;color:#fff;position:relative}
+    nav a::after{content:'';position:absolute;width:0;height:2px;background:#7c3aed;left:0;bottom:-5px;transition:.3s}
+    nav a:hover::after{width:100%}
 
-    .hero { display:flex; align-items:center; justify-content:space-between; padding:80px 10%; gap:40px; }
-    .hero-text { max-width:500px; }
-    .hero-text h2 { font-size:42px; margin-bottom:20px; }
-    .hero-text p { margin-bottom:20px; color:#cbd5f5; }
-    .hero img { width:300px; border-radius:20px; max-width:100%; }
+    section{padding:90px 8%}
 
-    .btn { padding:10px 20px; background:#6366f1; border:none; color:#fff; border-radius:8px; cursor:pointer; text-decoration:none; display:inline-block; margin-top:10px; }
+    .hero{display:flex;align-items:center;justify-content:space-between;gap:40px}
+    .hero h2{font-size:56px}
+    .hero span{background:linear-gradient(90deg,#7c3aed,#06b6d4);-webkit-background-clip:text;color:transparent}
+    .hero p{margin:20px 0;color:#94a3b8}
 
-    section { padding:60px 10%; }
+    .btn{padding:12px 24px;border-radius:10px;background:linear-gradient(90deg,#7c3aed,#06b6d4);color:#fff;text-decoration:none;display:inline-block;transition:.3s;margin-top:10px}
+    .btn:hover{transform:translateY(-3px);box-shadow:0 12px 25px rgba(124,58,237,.4)}
 
-    .projects { display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:20px; margin-top:20px; }
+    .hero img{width:320px;border-radius:20px}
 
-    .card { background:#1e293b; padding:20px; border-radius:15px; }
-    .card img { width:100%; border-radius:10px; margin-bottom:10px; }
+    h2.section-title{font-size:34px;margin-bottom:20px}
 
-    footer { text-align:center; padding:20px; background:#020617; }
+    .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:25px}
 
-    /* ✅ MOBILE RESPONSIVE */
-    @media (max-width: 768px) {
-      header { flex-direction:column; align-items:flex-start; }
-      nav { margin-top:10px; }
-      nav a { margin-left:0; margin-right:15px; }
+    .card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:20px;transition:.4s}
+    .card:hover{transform:translateY(-10px)}
+    .card img{width:100%;border-radius:10px;margin-bottom:12px}
 
-      .hero { flex-direction:column; text-align:center; padding:50px 5%; }
-      .hero-text h2 { font-size:28px; }
+    .hidden{opacity:0;transform:translateY(40px);transition:.8s}
+    .show{opacity:1;transform:translateY(0)}
 
-      section { padding:40px 5%; }
-    }
+    .case-study{background:#111827;padding:30px;border-radius:15px;margin-top:30px;display:none}
 
-    @media (max-width: 480px) {
-      .hero-text h2 { font-size:24px; }
-      .btn { width:100%; text-align:center; }
-    }
+    footer{text-align:center;padding:30px;background:#020617;color:#94a3b8}
+
+    @media(max-width:1024px){.grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:768px){.hero{flex-direction:column;text-align:center}.hero h2{font-size:36px}.grid{grid-template-columns:1fr}}
   </style>
 </head>
+
 <body>
 
 <header>
   <h1>Rubi Sharma</h1>
   <nav>
     <a href="#">Home</a>
-    <a href="#projects">Projects</a>
+    <a href="#work">Work</a>
     <a href="#live">Live</a>
     <a href="#contact">Contact</a>
   </nav>
 </header>
 
 <section class="hero">
-  <div class="hero-text">
-    <h2>Hi, I'm a UI/UX Designer</h2>
-    <p>I design modern, user-friendly digital experiences focused on usability and aesthetics.</p>
-    <a href="#projects" class="btn">View Work</a>
+  <div>
+    <h2>Hi, I'm <span>Your Name</span></h2>
+    <p>I design user-focused and modern digital experiences.</p>
+    <a href="#work" class="btn">View Work</a>
   </div>
-  <img src="https://via.placeholder.com/300" alt="profile">
+  <img src="2nd image.jpeg">
 </section>
 
-<section id="projects">
-  <h2>My Work</h2>
-  <div class="projects">
-    <div class="card">
-      <img src="https://via.placeholder.com/400x250">
-      <h3>Project One</h3>
-      <p>UI/UX case study for mobile app design.</p>
+<section id="work">
+  <h2 class="section-title">My Work</h2>
+  <div class="grid">
+
+    <div class="card hidden" onclick="showCaseStudy()">
+      <img src="Dashboard.jpg">
+      <h3>CA Management Software</h3>
     </div>
-    <div class="card">
-      <img src="https://via.placeholder.com/400x250">
-      <h3>Project Two</h3>
-      <p>Website redesign with improved user flow.</p>
+
+    <div class="card hidden">
+      <img src="create invoice.jpg">
+      <h3>Inavoice Creatation</h3>
     </div>
+
+    <div class="card hidden">
+      <img src="Invoices.jpg">
+      <h3>Invoice Management</h3>
+    </div>
+
+    <div class="card hidden">
+      <img src="Tracking live screen.jpg">
+      <h3>SmartBus Tracking</h3>
+    </div>
+
   </div>
+
+  </section>
+
+<!-- NEW CASE STUDY SECTION -->
+<section id="case-studies">
+  <h2 class="section-title">Detailed Case Study</h2>
+
+  <div id="caseStudy" class="case-study" style="display:block">
+    <h2>E-commerce Website Redesign</h2>
+
+    <h3>📌 Overview</h3>
+    <p>This project focused on improving the usability of an e-commerce platform by simplifying navigation and enhancing the checkout experience.</p>
+
+    <h3>🎯 Problem</h3>
+    <p>Users were struggling to navigate the website and many abandoned their carts due to a long and confusing checkout process.</p>
+
+    <h3>🔍 Research</h3>
+    <p>I studied competitor platforms and identified key usability issues such as unclear navigation, poor product hierarchy, and too many checkout steps.</p>
+
+    <h3>💡 Solution</h3>
+    <p>I redesigned the structure by simplifying navigation, improving product visibility, and reducing checkout steps from multiple screens to a streamlined flow.</p>
+
+    <h3>🎨 Design Process</h3>
+    <ul>
+      <li>Wireframing and user flow mapping</li>
+      <li>High-fidelity UI design in Figma</li>
+      <li>Interactive prototyping</li>
+    </ul>
+
+    <h3>📈 Outcome</h3>
+    <p>The final design improved clarity, reduced friction in checkout, and created a smoother overall user experience.</p>
+
+    <a href="https://your-link.com" target="_blank" class="btn">View Live Project</a>
+  </div>
+
+</section>
+
+<!-- CASE STUDY CONTENT (OLD INTERACTIVE) -->
+  <div id="caseStudy" class="case-study">
+    <h2>E-commerce Website Redesign</h2>
+
+    <h3>Problem</h3>
+    <p>Users struggled with navigation and dropped off during checkout due to complexity.</p>
+
+    <h3>Research</h3>
+    <p>Analyzed competitors and user behavior to identify usability issues.</p>
+
+    <h3>Solution</h3>
+    <p>Simplified navigation and reduced checkout steps to improve user experience.</p>
+
+    <h3>Outcome</h3>
+    <p>Improved usability and smoother user journey.</p>
+
+    <a href="https://your-link.com" target="_blank" class="btn">View Live Project</a>
+  </div>
+
 </section>
 
 <section id="live">
-  <h2>Live Projects</h2>
-  <div class="projects">
-    <div class="card">
-      <img src="https://via.placeholder.com/400x250">
-      <h3>Live Project One</h3>
-      <p>Click below to view the live website.</p>
-      <a href="https://your-live-link.com" target="_blank" class="btn">View Live</a>
+  <h2 class="section-title">Live Projects</h2>
+  <div class="grid">
+
+    <div class="card hidden">
+      <img src="mehta-fire-engineers.jpg">
+      <h3>Project 1</h3>
+      <a href="https://www.mehtafireengg.com/" target="_blank" class="btn">Visit Website</a>
     </div>
+
+    <div class="card hidden">
+      <img src="v-care-services-.jpg">
+      <h3>Project 2</h3>
+      <a href="https://www.v-carefinancialservices.com/" target="_blank" class="btn">Visit Website</a>
+    </div>
+
+    <div class="card hidden">
+      <img src="numo.jpg">
+      <h3>Project 3</h3>
+      <a href="https://www.ishathakkar.com/" target="_blank" class="btn">Visit Website</a>
+    </div>
+
+    <div class="card hidden">
+      <img src="noiir-pigeon-.jpg">
+      <h3>Project 4</h3>
+      <a href="https://www.noiirpigeon.com" target="_blank" class="btn">Visit Website</a>
+    </div>
+
   </div>
 </section>
 
 <section id="contact">
-  <h2>Contact Me</h2>
-  <p>Email: your@email.com</p>
+  <h2 class="section-title">Contact</h2>
+  <p>Email: sharmarsl891@gmail.com</p>
+  <p>Email: 7990707706</p>
 </section>
 
 <footer>
-  <p>© 2026 My Portfolio</p>
+  <p>© 2026 Your Portfolio</p>
 </footer>
+
+<script>
+const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show')}})})
+document.querySelectorAll('.hidden').forEach(el=>observer.observe(el))
+
+function showCaseStudy(){
+  document.getElementById('caseStudy').style.display='block';
+  document.getElementById('caseStudy').scrollIntoView({behavior:'smooth'});
+}
+</script>
 
 </body>
 </html>
